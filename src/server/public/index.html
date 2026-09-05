@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JobCurator ⚡ AI Career Intelligence Dashboard</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="brand">
+      <span class="brand-logo">JobCurator ⚡</span>
+      <span class="brand-badge">Gemini AI</span>
+    </div>
+    <div class="nav-actions">
+      <label for="profileSelect" style="font-size: 0.85rem; color: var(--text-secondary);">Candidate Profile:</label>
+      <select id="profileSelect" class="profile-select">
+        <option value="">Loading profiles...</option>
+      </select>
+      <button id="btnCurate" class="btn btn-primary btn-sm">⚡ Run Dynamic Scrape</button>
+      <a id="btnExportCsv" class="btn btn-secondary btn-sm" href="#" target="_blank">📥 CSV</a>
+      <a id="btnExportJson" class="btn btn-secondary btn-sm" href="#" target="_blank">{ } JSON</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Candidate Persona Banner -->
+    <section id="profileBanner" class="profile-card glass">
+      <div class="profile-header">
+        <div>
+          <h1 id="candidateName" class="candidate-name">Candidate Name</h1>
+          <div id="candidateHeadline" class="candidate-headline">Senior Software Engineer</div>
+          <p id="candidateSummary" class="candidate-summary">Profile summary loading...</p>
+        </div>
+      </div>
+
+      <div class="constraints-grid" id="constraintsGrid">
+        <!-- Injected via JavaScript -->
+      </div>
+    </section>
+
+    <!-- Metrics Ribbon -->
+    <section class="stats-grid">
+      <div class="stat-box glass">
+        <div id="statTotal" class="stat-value">0</div>
+        <div class="stat-label">Active Listings</div>
+      </div>
+      <div class="stat-box glass">
+        <div id="statStrong" class="stat-value" style="color: var(--success);">0</div>
+        <div class="stat-label">Strong Matches (≥80%)</div>
+      </div>
+      <div class="stat-box glass">
+        <div id="statModerate" class="stat-value" style="color: var(--warning);">0</div>
+        <div class="stat-label">Moderate Matches (≥60%)</div>
+      </div>
+      <div class="stat-box glass">
+        <div id="statPassed" class="stat-value" style="color: var(--accent-cyan);">0</div>
+        <div class="stat-label">Constraints Verified</div>
+      </div>
+      <div class="stat-box glass">
+        <div id="statAvgScore" class="stat-value">0%</div>
+        <div class="stat-label">Average Match Score</div>
+      </div>
+    </section>
+
+    <!-- Toolbar: Search & Filters -->
+    <section class="toolbar glass">
+      <div class="search-group">
+        <input
+          type="text"
+          id="searchInput"
+          class="search-input"
+          placeholder="🔍 Search by job title, company, skills, or tech stack..."
+        />
+      </div>
+      <div class="filter-group">
+        <select id="filterRecommendation" class="filter-select">
+          <option value="ALL">All Recommendations</option>
+          <option value="STRONG_MATCH">Strong Matches (≥80%)</option>
+          <option value="MODERATE_MATCH">Moderate Matches (≥60%)</option>
+          <option value="PASSED_ONLY">Passed Hard Constraints Only</option>
+          <option value="REJECT_CONSTRAINTS">Constraints Failed</option>
+        </select>
+
+        <select id="filterBoard" class="filter-select">
+          <option value="ALL">All Boards</option>
+          <option value="web3.career">web3.career</option>
+          <option value="foorilla.com">foorilla.com</option>
+          <option value="cryptojobslist.com">cryptojobslist.com</option>
+        </select>
+
+        <select id="sortOrder" class="filter-select">
+          <option value="score_desc">Sort: Match Score (High to Low)</option>
+          <option value="score_asc">Sort: Match Score (Low to High)</option>
+          <option value="date_desc">Sort: Most Recent</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- Jobs Grid -->
+    <section id="jobsContainer" class="jobs-grid">
+      <div style="text-align: center; padding: 3rem; color: var(--text-muted);">
+        Loading curated jobs...
+      </div>
+    </section>
+  </main>
+
+  <!-- Evaluation Detail Modal -->
+  <div id="evalModal" class="modal-overlay">
+    <div class="modal-content">
+      <button id="modalCloseBtn" class="modal-close">&times;</button>
+      <div id="modalBody">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    JobCurator &copy; 2026 &bull; Open-Source AI Job Intelligence CLI & Dashboard &bull; Powered by Google Gemini & Playwright
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>
