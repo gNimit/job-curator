@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Production build
+dist/
+coverage/
+
+# Environment files and credentials
+.env
+.env.*
+!.env.example
+
+# Logs and OS files
+*.log
+.DS_Store
+Thumbs.db
+
+# Personal resumes and profile data (excluded for privacy)
+resumes/*
+resumes/.*
+!resumes/.gitkeep
+
+profiles/*
+profiles/.*
+!profiles/.gitkeep
+
